@@ -7,10 +7,10 @@ A Jupyter Book v2 project with integrated Python modules, managed by uv.
 ```
 betonotes/
 ├── book/              # Jupyter Book content
-│   ├── _config.yml   # Book configuration
-│   ├── _toc.yml      # Table of contents
-│   ├── index.md      # Home page
-│   └── notebooks/    # Content pages
+│   ├── myst.yml      # Book configuration
+│   ├── intro.md      # Home page
+│   ├── getting-started.md
+│   └── using-python-modules.md
 ├── src/              # Python source code
 │   └── betonotes/    # Python package
 │       ├── __init__.py
@@ -25,6 +25,7 @@ betonotes/
 
 - Python 3.12+
 - [uv](https://github.com/astral-sh/uv) package manager
+- Node.js (for Jupyter Book v2)
 
 ### Installation
 
@@ -39,21 +40,41 @@ betonotes/
 Build the Jupyter Book:
 
 ```bash
-uv run jupyter-book build book/
+cd book
+jupyter-book build --html
 ```
 
-The generated HTML will be in `book/_build/html/`. Open `book/_build/html/index.html` in your browser to view the book.
+Or using uv:
+
+```bash
+cd book
+uv run jupyter-book build --html
+```
+
+The generated site will be in `book/_build/site/`. 
+
+### Local Development
+
+Start the development server:
+
+```bash
+cd book
+jupyter-book start
+```
+
+Then open your browser to view the live site.
 
 ### Development
 
 - Add Python code to `src/betonotes/`
-- Add book content to `book/` directory
-- Update `book/_toc.yml` to include new pages
+- Add book content as markdown files in `book/` directory
+- Update `book/myst.yml` table of contents to include new pages
 - Add dependencies to `pyproject.toml` and run `uv sync`
 
 ## Features
 
-- **Jupyter Book v2**: Latest version with improved features
+- **Jupyter Book v2**: Built on MyST Document Engine
 - **Python Package**: Reusable code in `src/` directory
 - **uv**: Fast and modern Python package management
 - **MyST Markdown**: Rich content with executable code cells
+- **GitHub Pages**: Automatically deploys on push to main branch

@@ -37,9 +37,9 @@ jobs:
           node-version: 18.x
       - name: Install Jupyter Book (via myst)
         run: npm install -g jupyter-book
-      - name: Build HTML Assets
+      - name: Build Static HTML
         working-directory: ./book
-        run: jupyter-book build --html
+        run: jupyter-book build --html --static
       - name: Upload artifact
         uses: actions/upload-pages-artifact@v3
         with:
