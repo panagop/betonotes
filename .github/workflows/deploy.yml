@@ -4,7 +4,7 @@
 name: Jupyter Book (via myst) GitHub Pages Deploy
 on:
   push:
-    # Runs on pushes targeting the default branch
+    # Runs on pushes targeting the default branch (adjust if your default is master)
     branches: [main]
 env:
   # `BASE_URL` determines, relative to the root of the domain, the URL that your site is served from.
@@ -37,13 +37,13 @@ jobs:
           node-version: 18.x
       - name: Install Jupyter Book (via myst)
         run: npm install -g jupyter-book
-      - name: Build for GitHub Pages
+      - name: Build Jupyter Book (HTML)
         working-directory: ./book
-        run: jupyter-book build --gh
+        run: jupyter-book build --html .
       - name: Upload artifact
         uses: actions/upload-pages-artifact@v3
         with:
-          path: './book/_build/site'
+          path: './book/_build/html'
       - name: Deploy to GitHub Pages
         id: deployment
         uses: actions/deploy-pages@v4
