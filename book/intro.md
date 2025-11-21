@@ -1,26 +1,28 @@
-# Introduction
+# Welcome to Betonotes
 
-I am a book about ... something! Wikipedia has [information about books](wiki:book): hover over the link for more information.
+This is a Jupyter Book project that combines documentation with Python code modules.
 
-% An admonition containing a note
-:::{note}
-Books are usually written on paper ... But Jupyter Book can create _websites_!
-:::
+## About This Project
 
-If you sold 100 books at \$10 per book, you'd have \$1000 dollars according to [](#eq:book). If instead you publish your Jupyter Book to the web for free, you'd have \$0 dollars!
+Betonotes demonstrates how to:
+- Use Jupyter Book v2 for creating interactive documentation
+- Organize Python code in a `src/` directory
+- Import and use custom Python modules in your notebooks
+- Manage the project with `uv` for fast dependency management
 
-% An arbitrary math equation
-:::{math}
-:name: eq:book
+## Getting Started
 
-x \times y = z
-:::
+Check out the following sections to learn more:
+- [Getting Started](getting-started.md) - Learn the basics
+- [Using Python Modules](using-python-modules.md) - See how to use the Python modules
 
-Sometimes when reading it is helpful to foster a _tranquil_ environment. The image in [](#fig:mountains) would be a perfect spot!
+## Building the Book
 
-% A figure of a photograph of some mountains, followed by a caption
-:::{figure} https://github.com/rowanc1/pics/blob/main/mountains.png?raw=true
-:label: fig:mountains
+To build this book locally, run:
 
-A photograph of some beautiful mountains to look at whilst reading.
-:::
+```bash
+cd book
+jupyter-book build --html
+```
+
+The generated HTML will be in `_build/html/`.
