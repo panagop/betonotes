@@ -37,13 +37,13 @@ jobs:
           node-version: 18.x
       - name: Install Jupyter Book (via myst)
         run: npm install -g jupyter-book
-      - name: Build Static HTML
+      - name: Build for GitHub Pages
         working-directory: ./book
-        run: jupyter-book build --html --static
+        run: jupyter-book build --gh
       - name: Upload artifact
         uses: actions/upload-pages-artifact@v3
         with:
-          path: './book/_build/site'
+          path: './book/_build/html'
       - name: Deploy to GitHub Pages
         id: deployment
         uses: actions/deploy-pages@v4
